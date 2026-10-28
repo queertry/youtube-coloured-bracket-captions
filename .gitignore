@@ -1,0 +1,5 @@
+build/
+dist/
+esbuild
+esbuild.exe
+.build-tmp.*/

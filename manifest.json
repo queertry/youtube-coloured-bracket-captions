@@ -1,0 +1,56 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Coloured Bracket Captions",
+  "version": "1.0.0",
+  "author": "Queertry",
+  "homepage_url": "https://github.com/queertry",
+  "developer": {
+    "name": "Queertry",
+    "url": "https://github.com/queertry"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ycbc@queertry.com",
+      "strict_min_version": "140.0"
+    }
+  },
+  "description": "Colours [bracketed] text in YouTube captions, typically used to caption on-screen text, so it stands apart from dialogue.",
+  "icons": {
+    "16": "src/icons/png/icon-16.png",
+    "32": "src/icons/png/icon-32.png",
+    "48": "src/icons/png/icon-48.png",
+    "96": "src/icons/png/icon-96.png",
+    "128": "src/icons/png/icon-128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*", "*://youtube.com/*",
+        "*://www.youtube-nocookie.com/*"
+      ],
+      "js":  [
+        "src/resources/loader/resource-loader.js",
+        "src/shared/settings.js",
+        "src/content/init.js",
+        "src/content/matchers/base.js",
+        "src/content/matchers/square-brackets.js",
+        "src/content/renderer/highlight.js",
+        "src/content/caption-observer.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_title": "YCBC",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "src/icons/png/icon-16.png",
+      "32": "src/icons/png/icon-32.png"
+    }
+  }
+}

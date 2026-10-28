@@ -1,0 +1,184 @@
+:root {
+  color-scheme: light dark;
+
+  --bg: light-dark(#f6f7f9, #161a22);
+  --fg: light-dark(#111318, #e7eaf0);
+  --muted: light-dark(rgba(17,19,24,.72), rgba(231,234,240,.74));
+  --border: light-dark(rgba(17,19,24,.12), rgba(231,234,240,.14));
+  --link: light-dark(#1a5cff, #8ab4ff);
+  --link-hover: light-dark(#0f49cc, #b3cfff);
+}
+
+body {
+  font: message-box;
+  margin: 0;
+  padding: 10px 12px;
+  width: 400px;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+  color: var(--fg);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+h1,
+h2 {
+  margin: 0 0 6px;
+}
+
+p {
+  margin: 6px 0 0;
+}
+
+label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+label.setting-label:not(:first-of-type) {
+  margin-top: 12px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--link);
+}
+
+.hint {
+  margin-top: 6px;
+  opacity: 0.9;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+section:not(:first-of-type) {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--border);
+}
+
+.colour-picker {
+  display: grid;
+  grid-template-columns: 1fr 18px;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.colour-picker-area,
+.colour-picker-hue {
+  position: relative;
+  height: 120px;
+  border-radius: 4px;
+  touch-action: none;
+}
+
+.colour-picker-area {
+  background-image:
+    linear-gradient(to top, #000, transparent),
+    linear-gradient(to right, #fff, transparent);
+  cursor: crosshair;
+}
+
+.colour-picker-hue {
+  background: linear-gradient(to bottom, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+  cursor: ns-resize;
+}
+
+.colour-picker-area:focus-visible,
+.colour-picker-hue:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.colour-picker-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.colour-picker-hue .colour-picker-handle {
+  left: 50%;
+  width: calc(100% + 2px);
+  height: 6px;
+  border-radius: 3px;
+}
+
+.colour-picker-row {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.colour-picker-swatch {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.colour-picker-hex {
+  width: 80px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--fg);
+  font-family: monospace;
+}
+
+button.reset {
+  margin-top: 8px;
+}
+
+/* Imitates YouTube's caption box so the colour can be judged in context */
+.caption-preview {
+  margin-top: 10px;
+  padding: 18px 10px;
+  border-radius: 6px;
+  text-align: center;
+  background: linear-gradient(135deg, #4a5a6a, #9aa4ad 50%, #3a2e2a);
+}
+
+.caption-preview-line {
+  display: block;
+}
+
+.caption-preview-segment {
+  display: inline-block;
+  padding: 3px 6px;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, Verdana, sans-serif;
+  font-size: 16px;
+  white-space: pre-wrap;
+  color: #fff;
+  background: rgba(8, 8, 8, 0.75);
+}

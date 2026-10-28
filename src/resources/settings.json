@@ -1,0 +1,17 @@
+{
+  "ENABLED": {
+    "type": "boolean",
+    "default": true,
+    "section": "settings",
+    "label": "Colour bracketed caption text",
+    "hint": "Default: on"
+  },
+  "BRACKET_COLOUR": {
+    "type": "color",
+    "default": "#ffd54a",
+    "section": "settings",
+    "label": "Colour of [bracketed] text",
+    "hint": "Default: amber (#ffd54a), readable on YouTube's dark caption background",
+    "preview": "[Oh, a fast brown fox]\nWhat a quick brown fox!"
+  }
+}
